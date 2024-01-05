@@ -5,11 +5,15 @@
 
 using namespace std;
 
-int n;
-int DP[1001][1001];
-int grid[1001][1001];
+typedef long long ll;
 
-int f(int i, int j) {
+int n;
+ll DP[1001][1001];
+ll grid[1001][1001];
+
+ll mod = 1e9 + 7;
+
+ll f(int i, int j) {
   if (DP[i][j] != -1)
     return DP[i][j];
   
@@ -22,7 +26,7 @@ int f(int i, int j) {
   if (grid[i][j])
     return 0;
 
-  return DP[i][j] = f(i + 1, j) + f(i, j + 1);
+  return DP[i][j] = (f(i + 1, j) + f(i, j + 1)) % mod;
 }
 
 int main() {
