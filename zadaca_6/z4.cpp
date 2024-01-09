@@ -20,10 +20,10 @@ bool f(int val) {
 
   bool r = 0;
   for (int i = 0; i < n; i++) {
-    r = r or !(f(val - nums[i]));
+    r = r or f(val - nums[i]);
   }
 
-  return DP[val] = r;
+  return DP[val] = !r;
 }
 
 int main() {
